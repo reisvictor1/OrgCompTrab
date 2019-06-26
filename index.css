@@ -9,6 +9,13 @@ header{
 .headerText{
     margin-top: 70px; 
 }
+a{
+    text-align: center;
+    border: 1px solid gray;
+    border-color: gray;
+    width: 100%;
+}
 .footer{
-    
+    position: relative;
+    margin-top: -200px;
 }
