@@ -1,0 +1,25 @@
+body{
+}
+header{
+    width: 100% 
+}
+.imgLogo{
+    z-index: 2;
+}
+.headerText{
+    margin-top: 70px; 
+}
+a{
+    text-align: center;
+    border: 1px solid gray;
+    border-color: gray;
+    width: 100%;
+}
+a:hover{
+    background-color: #D3D3D3;
+}
+
+.footer{
+    position: relative;
+    margin-top: -200px;
+}
