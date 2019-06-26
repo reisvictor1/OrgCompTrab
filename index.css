@@ -15,6 +15,10 @@ a{
     border-color: gray;
     width: 100%;
 }
+a:hover{
+    background-color: #D3D3D3;
+}
+
 .footer{
     position: relative;
     margin-top: -200px;
