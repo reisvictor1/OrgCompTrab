@@ -18,29 +18,29 @@
         </div>
         <main class="text-lg container mx-auto bg-white">
             <h3 class="text-5xl flex flex-column lg:flex-row justify-center my-5">Memoria Cache</h3>
-            <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg" >Como sabemos a hierarquia de memória existe para que tenhamos um melhor desempenho gerral dos componentes de memória e a memória cache faz parte dessa hierarquia.
-                Sendo ela mais rápida que a memória principal, ela é usada para evitar que o processador tenha que “esperar” os dados da memória principal, 
+            <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg" >Como sabemos, a hierarquia de memória existe para que tenhamos um melhor desempenho geral dos componentes de memória e a memória cache faz parte dessa hierarquia.
+                Sendo ela mais rápida que a memória principal, ela é usada para evitar que o processador tenha que “esperar” os dados da memória principal,
                 que é mais lenta que a cpu, consequentemente a cache tem uma capacidade menor,
                 logo ela precisa selecionar os dados mais necessários, de modo a gerar uma maior eficiência.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                A memória cache possui um método de acesso associativo, 
-                ou seja, ela localiza seus dados através de seu conteúdo, 
-                e ela geralmente está associada diretamente ao processador para 
-                ter uma maior velocidade na transferência de dados para ele.    
+                A memória cache possui um método de acesso associativo,
+                ou seja, ela localiza seus dados através de seu conteúdo,
+                e ela geralmente está associada diretamente ao processador para
+                ter uma maior velocidade na transferência de dados para ele.
             </p>
-            <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg"> 
-                Ela segue princípios de localidade temporal e espacial, 
+            <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
+                Ela segue princípios de localidade temporal e espacial,
                 ou seja, se um dado foi utilizado recentemente,
                 ele pode ser utilizado novamente no futuro (temporal) e seus vizinhos têm uma grande
-                chance de serem utilizados (espacial). Logo a cache é implementada de modo a seguir 
+                chance de serem utilizados (espacial). Logo a cache é implementada de modo a seguir
                 esses princípios para atingir uma maior eficiência no processamento de dados.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
                     Como a cache é uma memória que deve manter apenas os dados que podem vir a serem utilizados,
                     ela possui diversas políticas para indicar o que deve ficar ou não na memória além de uma estruturação fixa dos dados.
                     Essas políticas seriam as funções de mapeamento, os algoritmos de substituição e as políticas de escrita.
-                    Sua estrutura é definida em blocos, onde cada bloco é um conjunto de palavras e uma palavra é um conjunto de bit que representa um inteiro ou instrução,
+                    Sua estrutura é definida em blocos, onde cada bloco é um conjunto de palavras e uma palavra é um conjunto de bits que representa um inteiro ou instrução,
                     e contém princípios de HIT(os dados estão na cache) e MISS (os dados não estão na cache).
                     Alguns conceitos que podem ser aplicados em sua estrutura são: Taxa de acertos (proporção de HIT na busca de dados),
                     taxa de falha (1 - taxa de acertos), tempo de acerto (tempo para acessar a cache e descobrir se é um HIT ou MISS),
@@ -54,24 +54,24 @@
             </p>
             <h4 class="text-3xl flex flex-column lg:flex-row justify-center">Mapeamento Direto</h4>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                Pelo Mapeamento direto todos os blocos da memória principal têm uma posição na memória cache,
-                porém como a cache é menor do que a principal vários blocos possuem posições repetidas dentro da cache.
+                Pelo Mapeamento Direto, todos os blocos da memória principal têm uma posição na memória cache,
+                porém, como a cache é menor do que a principal, vários blocos possuem posições repetidas dentro da cache.
                 Essa posições são definidas através da equação I = J módulo M, onde I é a posição do bloco na cache,
                 J é a posição do bloco na memória principal e M é o número máximo de blocos na cache,
                 ou seja o endereço do bloco na cache é o “fim” do endereço do bloco na principal.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                Apesar desse método de mapeamento ser simples e  de fácil implementação
+                Apesar desse método de mapeamento ser simples e de fácil implementação,
                 ele sofre em casos onde são necessários referências para blocos diferentes que possuem a mesma posição na cache,
                 desse modo sendo necessário continuamente trocar os blocos que estão na cache, desse modo gerando uma alta taxa de falha.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                Como diferentes blocos podem ocupar a mesma posição na cache é necessário utilizar tags para identificar o bloco utilizado.
+                Como diferentes blocos podem ocupar a mesma posição na cache, é necessário utilizar tags para identificar o bloco utilizado.
                 Essa tag é a parte endereço que difere entre os blocos que ocupam o mesmo espaço na cache,
                 ou seja o início do endereço na memória principal.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                O endereço na cache é dividido em campos, cada campo é utilizado para representar uma parte do bloco e para facilitar a busca e descobrir se temos um caso de HIT ou MISS.
+                O endereço na cache é dividido em campos, cada campo é utilizado para representar uma parte do bloco, facilitar a busca e descobrir se temos um caso de HIT ou MISS.
                 Se a arquitetura for endereçada a byte utilizaremos um byte offset para indicar o tamanho de uma palavra,
                 se os blocos tiverem mais do que uma palavra utilizaremos um word offset para indicar cada palavra,
                 no caso do mapeamento direto utilizaremos o index para indicar o valor I da posição do bloco atual, e por fim a tag.
@@ -85,7 +85,7 @@
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
                 O endereço da cache para esse método de mapeamento é similar ao do direto. Ela
                 mantém o byte offset e o word offset porém não temos mais o index e dessa vez a tag é o endereço do bloco na memória principal porém desconsiderando os bits de word offset,
-                ou seja os bits que diferenciam os endereços de palavras do mesmo bloco, ou o endereço original do bloco caso o ele possua apenas uma palavra.    
+                ou seja os bits que diferenciam os endereços de palavras do mesmo bloco, ou o endereço original do bloco caso o ele possua apenas uma palavra.
             </p>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
                 Apesar desse método de mapeamento ter mais opções para a inserção de blocos na cache ele possui uma implementação mais complexa
@@ -95,7 +95,7 @@
             <br />
             <h3 class="text-5xl flex flex-column lg:flex-row justify-center my-5"><a id="sub">Políticas de Substituição</a></h3>
             <p class="my-5 text-justify flex flex-column lg:flex-row justify-center text-lg">
-                Quando um bloco é trazido para a cache e não existe espaço, ocorre uma falha de conflito(write-miss). Para resolver este problema é utilizado algoritmos de substituição para substituir,
+                Quando um bloco é trazido para a cache e não existe espaço, ocorre uma falha de conflito(write-miss). Para resolver este problema são utilizados algoritmos de substituição para substituir,
                 em teoria, o bloco que tem a menor probabilidade de ser utilizado novamente. Isto serve somente para o mapeamento associativo e associativo por conjunto,
                 visto que o mapeamento direto substitui o bloco diretamente.
                 Conforme evoluíram as caches, existiram diversos tipos de algoritmos sendo que alguns deles são:
@@ -110,10 +110,10 @@
                 O maior problema deste algoritmo é que nem sempre o bloco com maior tempo na cache tem menos probabilidade de ser utilizado.
             </p>
             <h3 class="text-5xl flex flex-column lg:flex-row justify-center my-5"><a id="atual">Políticas de Atualização</a></h3>
-           
+
         </main>
         <footer class="flex flex-row justify-center lg:justify-start ml-3 text-sm">
-            Criado por João Nagasava, Matheus Rigato, Victor Reis e Vinicius Carvalho - ICMC USP 
+            Criado por João Nagasava, Matheus Rigato, Victor Reis e Vinicius Carvalho - ICMC USP
         </footer>
     </body>
 

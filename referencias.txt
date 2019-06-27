@@ -1,0 +1,2 @@
+IMAGENS
+niveisMemoria3.png	https://www.geeksforgeeks.org/cache-memory/
