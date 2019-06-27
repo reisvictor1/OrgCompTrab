@@ -1,28 +1,37 @@
-body{
+header {
+    width: 100%
 }
-header{
-    width: 100% 
-}
-.imgLogo{
+
+.imgLogo {
     z-index: 2;
 }
-.nav-d{
+
+#bold {
+    padding: 0%;
+    margin: 0%;
+    font-weight: bold;
+}
+
+.nav-d {
     height: 6rem;
 }
-.headerText{
-    margin-top: 70px; 
+
+.headerText {
+    margin-top: 70px;
 }
-.nav_a{
+
+.nav_a {
     text-align: center;
     border: 1px solid gray;
     border-color: gray;
     width: 100%;
 }
-.nav_a:hover{
+
+.nav_a:hover {
     background-color: #D3D3D3;
 }
 
-.footer{
+.footer {
     height: 3rem;
     background-color: gray;
     position: relative;
